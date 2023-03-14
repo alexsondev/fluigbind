@@ -1,0 +1,10 @@
+.DS_Store
+node_modules/
+examples/
+docs/
+tmp/
+
+package-lock.json
+
+CHANGELOG.md
+doc.sh

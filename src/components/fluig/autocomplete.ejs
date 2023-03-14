@@ -1,0 +1,10 @@
+<div class="col-sm-5 col-md-4" rv-show="fields.perfil.visible">
+  <div rv-class-has-error="fields.perfil.errors" class="form-group">
+    <label for="perfilI" class="control-label">Perfil</label>
+    <div rv-show="fields.perfil.loading" class="fs-skeleton-loader fs-skeleton-loader-input"></div>
+    <input rv-enabled="sections.programa.editable" rv-show="!fields.perfil.loading" type="text" name="perfilI"
+      class="form-control input-lg" rv-autocomplete="fields.perfil.value" rv-on-change="fields.perfil.change"
+      data-displaykey="descricao" data-tpl-selected=".perfil-selected" data-tpl-list=".perfil-list">
+    <p class="help-block" rv-show="fields.perfil.errors">{fields.perfil.errors}</p>
+  </div>
+</div>
