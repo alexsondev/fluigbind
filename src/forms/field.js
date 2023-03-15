@@ -3,9 +3,20 @@ import Dataset from "./dataset";
 
 class Field {
 
-  constructor(name, type) {
-    this.name = name;
+  constructor(label, type) {
+    this.label = label;
     this.type = type;
+  }
+
+  /**
+   * @param {any} data
+   */
+  set data(data) {
+    this._data = data;
+  }
+
+  get data() {
+    return this._data;
   }
 
   /**
@@ -22,33 +33,33 @@ class Field {
   /**
    * @param {Boolean} visible
    */
-  static set visible(visible) {
+  set visible(visible) {
     this._visible = visible;
   }
 
-  static get visible() {
+  get visible() {
     return this._visible;
   }
 
   /**
    * @param {Boolean} mandatory
    */
-  static set mandatory(mandatory) {
+  set mandatory(mandatory) {
     this._mandatory = mandatory;
   }
 
-  static get mandatory() {
+  get mandatory() {
     return this._mandatory;
   }
 
   /**
    * @param {Dataset} dataset
    */
-  static set dataset(dataset) {
+  set dataset(dataset) {
     this._dataset = dataset;
   }
 
-  static get dataset() {
+  get dataset() {
     return this._dataset;
   }
 
@@ -59,6 +70,11 @@ class Field {
   validate() { }
   destroy() { }
 
+  clone() {
+    const clone = Object.assign( {}, this );
+
+    return Object.setPrototypeOf( clone, Field.prototype );
+  }
 }
 
 export default Field

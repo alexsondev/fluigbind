@@ -2,19 +2,21 @@ import fluigbind from './binder/fluigbind'
 import View from './binder/view'
 import {OPTIONS, EXTENSIONS} from './binder/constants'
 import adapter from './binder/adapter'
-import binders from './binder/binders'
 import formatters from './binder/formatters'
 import Observer from './binder/observer'
 import Component from './binder/component'
 
+import binders from './extra/binders'
+import components from './extra/components'
 
 // Returns the public interface.
+
+fluigbind.Component = Component
 
 fluigbind.binders = binders
 fluigbind.formatters = formatters
 fluigbind.adapters['.'] = adapter
-
-fluigbind.Component = Component
+fluigbind.components = components;
 
 // Binds some data to a template / element. Returns a fluigbind.View instance.
 fluigbind.bind = (el, models, options) => {
@@ -54,4 +56,4 @@ fluigbind.bind = (el, models, options) => {
   return view
 }
 
-exports.fluigbind = fluigbind
+export default fluigbind
